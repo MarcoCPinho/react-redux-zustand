@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 export function AddTodo() {
   const [newTodo, setNewTodo] = useState("");
 
+  const handleNewTodo = (e: FormEvent) => {
+    e.preventDefault();
+
+    console.log("newTodo", newTodo);
+  };
+
   return (
-    <form onSubmit={handle new}>
+    <form onSubmit={handleNewTodo}>
       <input
         type="text"
-        placeholder="Novo to-do/>"
+        placeholder="Novo to-do"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
       />
-      
+
       <button type="submit">Adicionar</button>
     </form>
   );
